@@ -12,6 +12,6 @@ for i, n in enumerate(input, start=1):
 
 for i, n in enumerate(input, start=1):
     for x in input[i::]:
-        for y in input[i+1::]:
+        for y in input[i + 1::]:
             if n + x + y == 2020:
                 print(f"{n}+{x}+{y}=2020: {n}*{x}*{y}={n*x*y}")
