@@ -15,7 +15,7 @@ func main() {
 		log.Fatalf("ERROR: %v", err)
 	}
 
-	// Check for the 2 digit sum
+	// Check for the 2 and 3 number sums
 	for i, n := range lines {
 		for _, m := range lines[i+1:] {
 			if n+m == 2020 {
