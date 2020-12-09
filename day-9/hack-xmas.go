@@ -68,7 +68,7 @@ func exploit(val int, payload []int) int {
 		smallest := n
 		largest := n
 		if n > val {
-			fmt.Println("\tSkipping, too high\n")
+			fmt.Println("\tSkipping, too high")
 			continue
 		}
 		acc := n
