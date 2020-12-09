@@ -79,7 +79,7 @@ func exploit(val int, payload []int) int {
 			} else if m > largest {
 				largest = m
 			}
-			fmt.Printf("\tAdding %d for a total of %d\n", m, acc)
+			// fmt.Printf("\tAdding %d for a total of %d\n", m, acc)
 			if acc == val {
 				fmt.Printf("\tFound it! %d to %d\n", n, m)
 				fmt.Printf("\tSmallest: %d, Largest: %d\n", smallest, largest)
