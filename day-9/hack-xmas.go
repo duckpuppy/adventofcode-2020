@@ -20,8 +20,8 @@ func main() {
 	// fmt.Printf("Preamble: %#v\nPayload: %#v", preamble, payload)
 	for _, val := range payload {
 		if checksum(val, preamble) == false {
-			fmt.Printf("Checksum Failed: %d\n", val)
 			ex := exploit(val, lines)
+			fmt.Printf("Exploitable value found: %d\n", val)
 			fmt.Printf("Exploit sum: %d\n", ex)
 		}
 		preamble = append(preamble[1:], val)
@@ -64,13 +64,13 @@ func checksum(val int, preamble []int) bool {
 
 func exploit(val int, payload []int) int {
 	for i, n := range payload {
-		fmt.Printf("Checking %d\n", n)
-		smallest := n
-		largest := n
+		fmt.Printf("Checking %d :: ", n)
 		if n > val {
 			fmt.Println("\tSkipping, too high")
 			continue
 		}
+		smallest := n
+		largest := n
 		acc := n
 		for _, m := range payload[i+1:] {
 			acc += m
@@ -81,11 +81,11 @@ func exploit(val int, payload []int) int {
 			}
 			// fmt.Printf("\tAdding %d for a total of %d\n", m, acc)
 			if acc == val {
-				fmt.Printf("\tFound it! %d to %d\n", n, m)
+				fmt.Printf("Found it! %d to %d\n", n, m)
 				fmt.Printf("\tSmallest: %d, Largest: %d\n", smallest, largest)
 				return smallest + largest
 			} else if acc > val {
-				fmt.Printf("\tAccumulator overflow: %d\n", acc)
+				fmt.Printf("Accumulator overflow: %d\n", acc)
 				break
 			}
 		}
