@@ -21,8 +21,9 @@ func main() {
 	for _, val := range payload {
 		if checksum(val, preamble) == false {
 			ex := exploit(val, lines)
+			fmt.Println("+++++++++++++++++++++++++++++++++++++++++++++++++++")
 			fmt.Printf("Exploitable value found: %d\n", val)
-			fmt.Printf("Exploit sum: %d\n", ex)
+			fmt.Printf("Exploit sum:             %d\n", ex)
 		}
 		preamble = append(preamble[1:], val)
 	}
